@@ -1,11 +1,11 @@
-**Thunder-Stopwatch README**
+<h1>Thunder-Stopwatch README</h1>
 
-**Contents:**
+<h2>Contents:</h2>
 
     I. Description
     II. License
 
-**I. Description**
+<h2>I. Description</h2>
 
 Thunder StopWatch is a toy app for Android that can be used to 
 estimate the distance to a flash of lightning.
@@ -25,7 +25,7 @@ Cool Ideas:
     display on a map).
   
 
-**II. License**
+<h2>II. License</h2>
 
 Copyright (C) 2012 Forrest Guice
 

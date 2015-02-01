@@ -1,3 +1,21 @@
+/**
+ Copyright (C) 2010 Forrest Guice
+ This file is part of Thunder-Stopwatch.
+
+ Thunder-Stopwatch is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Thunder-Stopwatch is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.forrestguice.thunderwatch.lib.recent;
 
 import android.text.format.DateUtils;
@@ -11,6 +29,7 @@ import com.forrestguice.thunderwatch.lib.R;
 import com.forrestguice.thunderwatch.lib.ThunderClockApp;
 import com.forrestguice.thunderwatch.lib.ThunderClockDbAdapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
@@ -53,14 +72,13 @@ public class HistoryListView extends CollapsableLayout
 	private int maxPadding = 5;
 	
 	private HistoryListAdapter adapter;
-		
+
 	public HistoryListView(Context context) 
 	{
 		super("historylist", context);
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_historylist, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
-		initList();
 	}
 
 	public HistoryListView(Context context, AttributeSet attrs)
@@ -69,9 +87,15 @@ public class HistoryListView extends CollapsableLayout
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_historylist, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
-		initList();
 	}
-	
+
+    @Override
+    public void setActivity( Activity a )
+    {
+        super.setActivity(a);
+        initList();
+    }
+
 	private void initList()
 	{
         dateFormat = TimeUtility.getDateFormat(myParent);

@@ -1,5 +1,5 @@
 /**
- Copyright (C) 2012 Forrest Guice
+ Copyright (C) 2010 Forrest Guice
  This file is part of Thunder-Stopwatch.
 
  Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -23,6 +23,7 @@ import com.forrestguice.thunderwatch.lib.timer.DigitalTimerView;
 import com.forrestguice.thunderwatch.lib.timer.AnalogTimerView;
 import com.forrestguice.thunderwatch.lib.timer.TimerView;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -32,7 +33,7 @@ import android.view.View;
 public class SimpleThunderClockView extends ThunderClockActivity
 {
 	public static final String DEFAULT_SETTING_TIMERVIEW = "analog";
-			
+
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -40,21 +41,23 @@ public class SimpleThunderClockView extends ThunderClockActivity
 		setContentView(R.layout.simple_view);
 				
 		AnalogTimerView aTimerView = (AnalogTimerView)findViewById(R.id.customAnalogClock);
-		aTimerView.setTitle("Analog Mode");
+		aTimerView.setActivity(this);
+        aTimerView.setTitle("Analog Mode");
 		aTimerView.setMode(CollapsableLayout.MODE_OPEN);
 		aTimerView.setVisibility(View.GONE);
 		
 		DigitalTimerView dTimerView = (DigitalTimerView)findViewById(R.id.digitaltimer);
-		dTimerView.setTitle("Digital Mode");
+        dTimerView.setActivity(this);
+        dTimerView.setTitle("Digital Mode");
 		dTimerView.setMode(CollapsableLayout.MODE_OPEN);
-		dTimerView.setVisibility(View.GONE);
+        dTimerView.setVisibility(View.GONE);
 				
 		ToggleButton button = (ToggleButton)findViewById(R.id.button_trigger);
 		button.setOnClickListener(this);
 		button.setOnTouchListener(this);
 	}
-	
-	public void setTimerView( TimerView v )
+
+    public void setTimerView( TimerView v )
 	{
 		timerView = v;
 	}

@@ -1,5 +1,5 @@
 /**
-    Copyright (C) 2012 Forrest Guice
+    Copyright (C) 2010 Forrest Guice
     This file is part of Thunder-Stopwatch.
 
     Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -20,6 +20,6 @@ package com.forrestguice.thunderwatch.free;
 
 public class AdPlacements
 {
-	public static final String mopub_banner1 = "agltb3B1Yi1pbmNyDQsSBFNpdGUY5abWFAw";   // This is the official one - do not uncomment until release
-	//public static final String mopub_banner1 = "agltb3B1Yi1pbmNyDQsSBFNpdGUYqY_WFAw";  // this is from dragon draw - use for testing
+	public static final String mopub_banner1 = "agltb3B1Yi1pbmNyDQsSBFNpdGUY5abWFAw";
+	//public static final String mopub_banner1 = "agltb3B1Yi1pbmNyDQsSBFNpdGUYqY_WFAw";
 }

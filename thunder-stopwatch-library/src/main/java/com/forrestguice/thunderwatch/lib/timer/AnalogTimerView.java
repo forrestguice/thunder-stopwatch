@@ -1,3 +1,21 @@
+/**
+ Copyright (C) 2010 Forrest Guice
+ This file is part of Thunder-Stopwatch.
+
+ Thunder-Stopwatch is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Thunder-Stopwatch is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.forrestguice.thunderwatch.lib.timer;
 
 import com.forrestguice.android.CollapsableLayout;
@@ -7,6 +25,7 @@ import com.forrestguice.thunderwatch.lib.ThunderClockActivity;
 import com.forrestguice.thunderwatch.lib.ThunderClockApp;
 import com.forrestguice.thunderwatch.lib.recent.HistoryListView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -30,7 +49,6 @@ public class AnalogTimerView extends CollapsableLayout implements TimerView
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_analogtimer, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
-		initTimerView();
 	}
 	
 	public AnalogTimerView(Context context, AttributeSet attrs)
@@ -39,7 +57,6 @@ public class AnalogTimerView extends CollapsableLayout implements TimerView
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_analogtimer, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
-		initTimerView();
 	}
 	
 	private void initTimerView()
@@ -63,6 +80,13 @@ public class AnalogTimerView extends CollapsableLayout implements TimerView
 		
 		//SingleLineTextView elapsedLabel = (SingleLineTextView)findViewById(R.id.label_distanceD);
 	}
+
+    @Override
+    public void setActivity( Activity a )
+    {
+        super.setActivity(a);
+        initTimerView();
+    }
 	
 	@Override
 	public void onRefreshDisplay()

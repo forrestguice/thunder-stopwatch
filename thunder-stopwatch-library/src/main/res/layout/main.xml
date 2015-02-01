@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (C) 2012 Forrest Guice
+    Copyright (C) 2010 Forrest Guice
     This file is part of Thunder-Stopwatch.
 
     Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -38,10 +38,12 @@ android:background="?mainActivityBackground" >
       android:paddingRight="5dp">
 
          <TabWidget
+         android:id="@android:id/tabs"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content" />
 
          <FrameLayout
+         android:id="@android:id/tabcontent"
          android:layout_width="fill_parent"
          android:layout_height="fill_parent"
          android:padding="2dp" />

@@ -1,3 +1,21 @@
+/**
+ Copyright (C) 2010 Forrest Guice
+ This file is part of Thunder-Stopwatch.
+
+ Thunder-Stopwatch is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Thunder-Stopwatch is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.forrestguice.thunderwatch.lib.graph;
 
 import com.forrestguice.android.CollapsableLayout;
@@ -12,6 +30,7 @@ import java.text.ParsePosition;
 import com.androidplot.Plot;
 import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.PointLabelFormatter;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYStepMode;
 
@@ -148,12 +167,13 @@ public class ThemedGraph extends CollapsableLayout implements View.OnCreateConte
         Paint lineFill = new Paint();
         lineFill.setAlpha(200);  // setup our line fill paint to be a slightly transparent gradient:
         lineFill.setShader(new LinearGradient(0, 0, 0, 250, color_fill_start, color_fill_end, Shader.TileMode.MIRROR));
-        
-        //formatter = new LineAndPointFormatter(
-        //        color_line,                   // line color
-        //        color_point,                  // point color
-        //        color_fill_start);            // fill color
-        //formatter.setFillPaint(lineFill);
+
+        PointLabelFormatter pointerLabelFormatter = new PointLabelFormatter(color_point);
+        formatter = new LineAndPointFormatter(
+                color_line,                   // line color
+                color_point,                  // point color
+                color_fill_start, pointerLabelFormatter);            // fill color
+        formatter.setFillPaint(lineFill);
        
         xyPlot.setDomainValueFormat(new Format() 
         {        

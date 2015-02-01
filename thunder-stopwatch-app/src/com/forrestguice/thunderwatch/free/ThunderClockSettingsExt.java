@@ -1,5 +1,5 @@
 /**
-    Copyright (C) 2012 Forrest Guice
+    Copyright (C) 2010 Forrest Guice
     This file is part of Thunder-Stopwatch.
 
     Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -19,32 +19,32 @@
 package com.forrestguice.thunderwatch.free;
 
 import com.forrestguice.thunderwatch.lib.ThunderClockSettings;
-import android.os.Bundle;
+//import android.os.Bundle;
 
 public class ThunderClockSettingsExt extends ThunderClockSettings
 {
-	private AdStuff ads;
+	//private AdStuff ads;
 	
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-
-		ads = (AdStuff)findViewById(R.id.adview_settings);
-		ads.setAdId(AdPlacements.mopub_banner1);
-	}
+	//@Override
+	//public void onCreate(Bundle savedInstanceState)
+	//{
+	//	super.onCreate(savedInstanceState);
+    //
+	//	ads = (AdStuff)findViewById(R.id.adview_settings);
+	//	ads.setAdId(AdPlacements.mopub_banner1);
+	//}
 
 	@Override
 	public void onResume()
 	{
-		ads.onResume();
+		//ads.onResume();
 		super.onResume();
 	}
 	
 	@Override
 	public void onDestroy()
 	{
-		ads.onDestroy();
+		//ads.onDestroy();
 		super.onDestroy();
 	}
 

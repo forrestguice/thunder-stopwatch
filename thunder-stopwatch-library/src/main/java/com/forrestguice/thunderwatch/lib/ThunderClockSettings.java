@@ -1,5 +1,5 @@
 /**
- Copyright (C) 2012 Forrest Guice
+ Copyright (C) 2010 Forrest Guice
  This file is part of Thunder-Stopwatch.
 
  Thunder-Stopwatch is free software: you can redistribute it and/or modify

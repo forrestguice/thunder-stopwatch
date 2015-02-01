@@ -1,3 +1,21 @@
+/**
+ Copyright (C) 2010 Forrest Guice
+ This file is part of Thunder-Stopwatch.
+
+ Thunder-Stopwatch is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Thunder-Stopwatch is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.forrestguice.thunderwatch.lib.timer;
 
 import com.forrestguice.android.CollapsableLayout;
@@ -9,7 +27,7 @@ import com.forrestguice.thunderwatch.lib.ThunderClockApp;
 import android.content.Context;
 
 import android.os.Handler;
-
+import android.app.Activity;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -19,14 +37,13 @@ public class DigitalTimerView extends CollapsableLayout implements TimerView
 {	
 	private Handler displayHandler;
 	private Runnable updateDisplayTask;
-		
+
 	public DigitalTimerView(Context context) 
 	{
 		super("digitaltimer", context);
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_digitaltimer, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
-		initTimerView();
 	}
 	
 	public DigitalTimerView(Context context, AttributeSet attrs)
@@ -35,19 +52,25 @@ public class DigitalTimerView extends CollapsableLayout implements TimerView
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_digitaltimer, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
-		initTimerView();
 	}
-	
+
 	public Handler getDisplayHandler()
 	{
 		return displayHandler;
 	}
-	
+
+    @Override
+    public void setActivity( Activity a )
+    {
+        super.setActivity(a);
+        initTimerView();
+    }
+
 	private void initTimerView()
 	{	
 		displayHandler = new Handler();
 		updateDisplayTask = new UpdateTask((ThunderClockApp)myParent.getApplication(), R.id.label_elapsedD, R.id.label_distanceD);
-		
+
 		/**TextView unitsLabel = (TextView)findViewById(R.id.label_unitsD);
 		unitsLabel.setOnLongClickListener(new View.OnLongClickListener() 
 		{		
@@ -86,10 +109,8 @@ public class DigitalTimerView extends CollapsableLayout implements TimerView
 	@Override
 	public void setElapsed(long elapsed) 
 	{
-		ThunderClockApp app = (ThunderClockApp)myParent.getApplication();
-		
 		double e = (double)elapsed / 1000.0;
-		double d = e * app.speed_of_sound;
+		double d = e * ((ThunderClockApp)myParent.getApplication()).speed_of_sound;
 		double ef = (double)Math.round(e * 10) / 10;
 		double df =  (double)Math.round(d * 10) / 10;
 				
@@ -97,7 +118,7 @@ public class DigitalTimerView extends CollapsableLayout implements TimerView
 		view.setText(ef + "s");
 
 		view = (TextView)findViewById(R.id.label_distanceD);
-		view.setText(df + " " + app.distance_units);	
+		view.setText(df + " " + ((ThunderClockApp)myParent.getApplication()).distance_units);
 	}
 	
 	protected class UpdateTask implements Runnable
@@ -139,7 +160,10 @@ public class DigitalTimerView extends CollapsableLayout implements TimerView
 	@Override
 	public Runnable getUpdateTask() 
 	{	
-		if (updateDisplayTask != null) stopHandler();
+		if (updateDisplayTask != null)
+        {
+            stopHandler();
+        }
 		updateDisplayTask = new UpdateTask((ThunderClockApp)myParent.getApplication(), R.id.label_elapsedD, R.id.label_distanceD);
 		return updateDisplayTask;
 	}

@@ -1,3 +1,21 @@
+/**
+ Copyright (C) 2010 Forrest Guice
+ This file is part of Thunder-Stopwatch.
+
+ Thunder-Stopwatch is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Thunder-Stopwatch is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.forrestguice.android;
 
 import java.lang.reflect.Method;
@@ -45,7 +63,7 @@ public abstract class CollapsableLayout extends LinearLayout
 	protected ImageButton btn_showHide;
 	protected TextView txt_title;
 	
-	protected Activity myParent;	
+	protected Activity myParent;
 	protected String myName;
 	protected ViewGroup mainContent;
 	public boolean landscape; 
@@ -59,7 +77,6 @@ public abstract class CollapsableLayout extends LinearLayout
 	public CollapsableLayout(String _name, Context context)
 	{
 		super(context);
-		myParent = (Activity)context;
 		myName = _name;
 		this.setPadding(0, 0, 0, 0);
 		this.setOrientation(VERTICAL);
@@ -72,7 +89,6 @@ public abstract class CollapsableLayout extends LinearLayout
 	public CollapsableLayout(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
-		myParent = (Activity)context;
 		this.setPadding(0, 0, 0, 0);
 		this.setOrientation(VERTICAL);
 		
@@ -83,7 +99,12 @@ public abstract class CollapsableLayout extends LinearLayout
 		inflater.inflate(R.layout.widget_showhide, this);
 		initShowHide(context);
 	}
-		
+
+    public void setActivity( Activity a )
+    {
+        myParent = a;
+    }
+
 	public void setMainContent( ViewGroup g )
 	{
 		mainContent = g;
@@ -215,7 +236,10 @@ public abstract class CollapsableLayout extends LinearLayout
 		Display display = ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay(); 
 		landscape = false;
 		int screen_orientation = display.getOrientation();
-		if (screen_orientation == Surface.ROTATION_90 || screen_orientation == Surface.ROTATION_270) landscape = true;	
+		if (screen_orientation == Surface.ROTATION_90 || screen_orientation == Surface.ROTATION_270)
+        {
+            landscape = true;
+        }
 	}
 		
 	public void pauseWidget()

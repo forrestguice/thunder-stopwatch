@@ -1,5 +1,5 @@
 /**
-    Copyright (C) 2012 Forrest Guice
+    Copyright (C) 2010 Forrest Guice
     This file is part of Thunder-Stopwatch.
 
     Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -24,38 +24,38 @@ import android.widget.TabHost;
 
 public class ThunderClockExt extends ThunderClock
 {
-	private AdStuff ads;
+	//private AdStuff ads;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		
-		ads = (AdStuff)findViewById(R.id.adview_main);
-		ads.setAdId(AdPlacements.mopub_banner1);
+		//ads = (AdStuff)findViewById(R.id.adview_main);
+		//ads.setAdId(AdPlacements.mopub_banner1);
 		
-		TabHost tabHost = getTabHost();
-		tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() 
-		{			
-			@Override
-			public void onTabChanged(String tabId) 
-			{
-				ads.onResume();
-			}
-		});
+		//TabHost tabHost = getTabHost();
+		//tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener()
+		//{
+		//	@Override
+		//	public void onTabChanged(String tabId)
+		//	{
+		//		ads.onResume();
+		//	}
+		//});
 	}
 	
 	@Override
 	public void onResume()
 	{
-		ads.onResume();
+		//ads.onResume();
 		super.onResume();
 	}
 	
 	@Override
 	public void onDestroy()
 	{
-		ads.onDestroy();
+		//ads.onDestroy();
 		super.onDestroy();
 	}
 }

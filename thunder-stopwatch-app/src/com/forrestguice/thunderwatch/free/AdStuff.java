@@ -1,5 +1,5 @@
 /**
-    Copyright (C) 2012 Forrest Guice
+    Copyright (C) 2010 Forrest Guice
     This file is part of Thunder-Stopwatch.
 
     Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -24,10 +24,10 @@ import java.util.Set;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+//import android.content.Intent;
+//import android.net.Uri;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
+//import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -54,8 +54,8 @@ public class AdStuff extends LinearLayout //implements MoPubView.OnAdLoadedListe
 		ad_id = id;
 		setOrientation(VERTICAL);
 		
-		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		inflater.inflate(R.layout.widget_adview, this);
+		//final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		//inflater.inflate(R.layout.widget_adview, this);
 		
 		initAdStuff();
 	}
@@ -66,8 +66,9 @@ public class AdStuff extends LinearLayout //implements MoPubView.OnAdLoadedListe
 		myParent = (Activity)context;
 		setOrientation(VERTICAL);
 		
-		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		inflater.inflate(R.layout.widget_adview, this);
+		//final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		//inflater.inflate(R.layout.widget_adview, this);
+
 		initAdStuff();
 	}
 	
@@ -77,19 +78,19 @@ public class AdStuff extends LinearLayout //implements MoPubView.OnAdLoadedListe
 		
 		random = new Random();
 		customAds.clear();
-		customAds.put(R.drawable.thunderclock_bannerad, "https://play.google.com/store/apps/details?id=com.forrestguice.thunderwatch.free");
+		//customAds.put(R.drawable.thunderclock_bannerad, "https://play.google.com/store/apps/details?id=com.forrestguice.thunderwatch.free");
 		
-		vpm = (ImageView)findViewById(R.id.adview_noNet);
-		vpm.setVisibility(View.GONE);
-		vpm.setOnClickListener(new View.OnClickListener()
-		{			
-			@Override
-			public void onClick(View v) 
-			{
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(customAdUrl));
-				myParent.startActivity(browserIntent);
-			}
-		});
+		//vpm = (ImageView)findViewById(R.id.adview_noNet);
+		//vpm.setVisibility(View.GONE);
+		//vpm.setOnClickListener(new View.OnClickListener()
+		//{
+		//	@Override
+		//	public void onClick(View v)
+		//	{
+		//		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(customAdUrl));
+		//		myParent.startActivity(browserIntent);
+		//	}
+		//});
 		
 		//mpv = (MoPubView)findViewById(R.id.adview);
 		//mpv.setOnAdLoadedListener(this);

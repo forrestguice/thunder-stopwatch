@@ -1,5 +1,5 @@
 /**
- Copyright (C) 2012 Forrest Guice
+ Copyright (C) 2010 Forrest Guice
  This file is part of Thunder-Stopwatch.
 
  Thunder-Stopwatch is free software: you can redistribute it and/or modify
@@ -57,13 +57,19 @@ public class LogThunderClockView extends ThunderClockActivity
 		updateDisplayTask = new UpdateTask((ThunderClockApp)getApplication(), R.id.label_elapsed, R.id.label_distance);
 			
 		timesince = (TimeSinceLastView)findViewById(R.id.history_timesincelast);
+        timesince.setActivity(this);
 		timesince.setTitle(getString(R.string.timesincearea_title));
 				
 		graph = (ThemedGraph)findViewById(R.id.history_graph);
+        graph.setActivity(this);
 		graph.setTitle(getString(R.string.grapharea_title));
-		if (graph.landscape) graph.setMode(CollapsableLayout.MODE_DIALOG);
+		if (graph.landscape)
+        {
+            graph.setMode(CollapsableLayout.MODE_DIALOG);
+        }
 		
 		list = (HistoryListView)findViewById(R.id.history_listview);
+        list.setActivity(this);
 		list.setMode(HistoryListView.MODE_OPEN);
 		
 		components.add(timesince);

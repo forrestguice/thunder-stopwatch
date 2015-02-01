@@ -9,9 +9,9 @@
  			  android:targetSdkVersion="10" />
 
 	<!-- required to display ads -->
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!--<uses-permission android:name="android.permission.INTERNET" />-->
+	<!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+	<!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
 
 	<application android:icon="@drawable/icon"
 	    android:name="com.forrestguice.thunderwatch.lib.ThunderClockApp"

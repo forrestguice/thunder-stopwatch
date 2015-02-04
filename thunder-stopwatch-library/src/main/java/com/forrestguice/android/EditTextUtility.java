@@ -44,8 +44,7 @@ public class EditTextUtility
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				if (field.getError() == null)
 				{
-					Drawable d = field.getText().toString().equals("") ||
-							!field.hasFocus() ? null : x;
+					Drawable d = (field.getText().toString().equals("") || !field.hasFocus()) ? null : x;
 					field.setCompoundDrawables(null, null, d, null);
 				}
 			}
@@ -58,17 +57,20 @@ public class EditTextUtility
 		field.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if (field.getCompoundDrawables()[2] == null) {
-					return false;
-				}
-				if (event.getAction() != MotionEvent.ACTION_UP) {
-					return false;
-				}
-				if (event.getX() > field.getWidth() - field.getPaddingRight() - x.getIntrinsicWidth()) {
-					field.setText("");
-					field.setCompoundDrawables(null, null, null, null);
-				}
+			if (field.getCompoundDrawables()[2] == null)
+            {
+                return false;
+            }
+			if (event.getAction() != MotionEvent.ACTION_UP)
+            {
 				return false;
+			}
+			if (event.getX() > field.getWidth() - field.getPaddingRight() - x.getIntrinsicWidth())
+            {
+                field.setText("");
+                field.setCompoundDrawables(null, null, null, null);
+            }
+			return false;
 			}
 		});
 	}
@@ -92,8 +94,12 @@ public class EditTextUtility
 			if (field.getError() == null)
 			{
 				Drawable d = field.getText().toString().trim().equals("") ? null : x;
-				if (hasFocus) field.setCompoundDrawables(null, null, d, null);
-				else field.setCompoundDrawables(null, null, null, null);
+				if (hasFocus)
+                {
+                    field.setCompoundDrawables(null, null, d, null);
+                } else {
+                    field.setCompoundDrawables(null, null, null, null);
+                }
 			}
 		}
 	}

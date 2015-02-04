@@ -59,8 +59,6 @@ public class ThunderClockDbAdapter
       @Override
       public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) 
       {
-         //Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
-         //      + newVersion + ", which will destroy all old data");
          db.execSQL("DROP TABLE IF EXISTS log");
          onCreate(db);
       }
@@ -202,7 +200,7 @@ public class ThunderClockDbAdapter
    // fetchEntry( row : long )  :  Cursor
    //////////////////////////////////////////////////
    /**
-      @param rowId id of entry
+      @param row id of entry
       @return Cursor positioned to matching entry
       @throws SQLException if entry could not be found/retrieved
    */
@@ -220,21 +218,4 @@ public class ThunderClockDbAdapter
       return cursor;
    }
 
-    /**
-     * Update the note using the details provided. The note to be updated is
-     * specified using the rowId, and it is altered to use the title and body
-     * values passed in
-     * 
-     * @param rowId id of note to update
-     * @param title value to set note title to
-     * @param body value to set note body to
-     * @return true if the note was successfully updated, false otherwise
-     */
-    //public boolean updateNote(long rowId, String title, String body) {
-    //    ContentValues args = new ContentValues();
-    //    args.put(KEY_TITLE, title);
-    //    args.put(KEY_BODY, body);
-
-    //    return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
-    //}
 }

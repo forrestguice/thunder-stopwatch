@@ -244,7 +244,10 @@ public abstract class CollapsableLayout extends LinearLayout
 		
 	public void pauseWidget()
 	{
-		if (dialog != null) dialog.dismiss();
+		if (dialog != null)
+        {
+            dialog.dismiss();
+        }
 	}
 	
 	public void restoreWidget()
@@ -316,8 +319,14 @@ public abstract class CollapsableLayout extends LinearLayout
 		
 	protected void onShowAction()
 	{
-		if (mainContent == null) return;
-		if (mainContent.getVisibility() == View.VISIBLE) return;
+		if (mainContent == null)
+        {
+            return;
+        }
+		if (mainContent.getVisibility() == View.VISIBLE)
+        {
+            return;
+        }
 
 		if (animate)
 		{
@@ -332,8 +341,14 @@ public abstract class CollapsableLayout extends LinearLayout
 	
 	protected void onHideAction()
 	{
-		if (mainContent == null) return;
-		if (mainContent.getVisibility() != View.VISIBLE) return;
+		if (mainContent == null)
+        {
+            return;
+        }
+		if (mainContent.getVisibility() != View.VISIBLE)
+        {
+            return;
+        }
 		
 		if (animate)
 		{
@@ -403,15 +418,21 @@ public abstract class CollapsableLayout extends LinearLayout
 	{
 	    final int initialHeight = getInitialHeight(v);
 	    
-	    if (expand) v.getLayoutParams().height = 0;
-	    else v.getLayoutParams().height = initialHeight;
+	    if (expand)
+        {
+            v.getLayoutParams().height = 0;
+        } else {
+            v.getLayoutParams().height = initialHeight;
+        }
 	    v.setVisibility(View.VISIBLE);
 	    
 	    Animation a = new Animation() {
 	        @Override
-	        protected void applyTransformation(float interpolatedTime, Transformation t) {
+	        protected void applyTransformation(float interpolatedTime, Transformation t)
+            {
 	            int newHeight = 0;
-	            if (expand) {
+	            if (expand)
+                {
 	            	newHeight = (int) (initialHeight * interpolatedTime);
 	            } else {
 	            	newHeight = (int) (initialHeight * (1 - interpolatedTime));
@@ -420,11 +441,14 @@ public abstract class CollapsableLayout extends LinearLayout
 	            v.requestLayout();
 	            
 	            if (interpolatedTime == 1 && !expand)
-	            	v.setVisibility(View.GONE);
+                {
+                    v.setVisibility(View.GONE);
+                }
 	        }
 
 	        @Override
-	        public boolean willChangeBounds() {
+	        public boolean willChangeBounds()
+            {
 	            return true;
 	        }
 	    };

@@ -57,8 +57,14 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 			suffixS = suffix;
 			suffixP = suffix;
 		}
-		if (!suffixS.startsWith(" ")) suffixS = " " + suffixS;
-		if (!suffixP.startsWith(" ")) suffixP = " " + suffixP;
+		if (!suffixS.startsWith(" "))
+        {
+            suffixS = " " + suffixS;
+        }
+		if (!suffixP.startsWith(" "))
+        {
+            suffixP = " " + suffixP;
+        }
 				
 		defaultValue = attrs.getAttributeIntValue(androidns, "defaultValue", 0);
 		currentValue = defaultValue;
@@ -69,12 +75,18 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 	@Override 
 	protected View onCreateDialogView() 
 	{
-		if (shouldPersist()) currentValue = getPersistedInt(currentValue) - minValue;
+		if (shouldPersist())
+        {
+            currentValue = getPersistedInt(currentValue) - minValue;
+        }
 		
 		txtSplash = new TextView(context);
 		txtSplash.setTextAppearance(context, android.R.style.TextAppearance_Medium);
 		txtSplash.setTextColor(Color.WHITE);
-		if (msg != null) txtSplash.setText(msg);
+		if (msg != null)
+        {
+            txtSplash.setText(msg);
+        }
 		
 		txtValue = new TextView(context);
 		txtValue.setTextAppearance(context, android.R.style.TextAppearance);
@@ -116,7 +128,6 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 		if (restore) 
 		{
 			currentValue = shouldPersist() ? getPersistedInt(currentValue) - minValue : defaultValue;
-			
 		} else { 
 			currentValue = defaultValue;
 		}	
@@ -127,8 +138,11 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 		int displayValue = value + minValue;
 		String t = String.valueOf(displayValue);
 		String suffix = (displayValue == 1) ? suffixS : suffixP;
-		txtValue.setText(suffix == null ? t : t.concat(suffix));
-		if (shouldPersist()) persistInt(displayValue);  // potentially move to dialog dismiss
+		txtValue.setText( (suffix == null) ? t : t.concat(suffix) );
+		if (shouldPersist())
+        {
+            persistInt(displayValue);  // potentially move to dialog dismiss
+        }
 		callChangeListener(Integer.valueOf(displayValue));
 	}
 
@@ -155,7 +169,10 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 
 	public void setProgress(int progress) 
 	{ 
-		if (bar != null) bar.setProgress(progress);
+		if (bar != null)
+        {
+            bar.setProgress(progress);
+        }
 	}
 	public int getProgress() 
 	{ 

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="close">Close</string>
+    <string name="localized_digits">0123456789.-</string>
+
+    <string name="app_name">Thunder Stopwatch</string>
+    <string name="app_version">0.4.0</string>
+
+    <string name="app_settings">Thunder Stopwatch Settings</string>
+    <string name="app_help">Thunder Stopwatch Help</string>
+    <string name="app_copyright">\nCopyright 2010 Forrest Guice\nAll rights reserved.\n\nPlotting provided by:\nAndroidPlot (http://androidplot.com).\nCopyright 2010 AndroidPlot.com\nAll rights reserved.</string>
+    <string name="app_desc">Thunder Stopwatch is a simple timer that estimates the distance to a flash of lightning.</string>
+
+    <string name="app_legal_header">\nLegal Disclaimer</string>
+    <string name="app_legal_notice">Thunderstorms are dangerous! Nothing replaces your own common sense. The author takes no liability for potentially dangerous actions performed while using this application, including but not limited to standing out in a thunderstorm while using a phone. Be safe!</string>
+    <string name="app_support_header">\nApp Support</string>
+    <string name="app_support_notice"><a href='https://sites.google.com/site/forrestguice/mobile-apps/email-support'>Send an email</a> for app support.</string>   
+    
+    <string name="distance_time_hint">Time (seconds)</string>
+    <string name="distance_dist_hint">Distance</string>
+    
+    <string name="headerHow">How It Works</string>
+    <string name="txtHow">Press the button to start the timer when you see a flash of lighting. Press the button again to stop the timer when you hear the corresponding sound of thunder.\n\nLight travels extremely fast (186,000 mi/s) so we see lightning almost immediately, but the sound of thunder is a wave of vibrating air molecules that travels through the atmosphere at a much slower speed. The exact speed of sound varies depending on temperature and humidity but an approximate speed is one mile every five seconds (or one kilometer every three seconds).\n\nRemember that speed = distance / time. We know the approximate speed of sound (1/5 mi/s) and we know how long it took the sound to reach us (in seconds) so we can determine the distance by rearranging the equation.\n\n
+
+<small>
+\tspeed = distance / time\n
+\tdistance = speed * time\n\n
+		
+\tdistance (in mi) = 1/5 mi/s * time (in seconds)\n
+\tdistance (in mi) = time (in seconds) / 5\n\n
+
+\tdistance (in km) = 1/3 km/s * time (in seconds)\n
+\tdistance (in km) = time (in seconds) / 3
+</small>
+\n\nThe next time you want to know how far away a lightning strike was, count how many seconds it takes the thunder to reach you, then divide by 5 (or 3).\n\nFor example if it takes thunder 10s to reach you, the lightning strike was 2 miles away. If you can see lightning but cannot hear thunder then the strike was probably more than 10 miles away.\n\nThunder StopWatch performs this simple calculation using a slightly more accurate (but still approximate) speed of sound.       
+    </string>
+    
+    <string name="headerSafety">When Thunder Roars, Go Indoors!</string>
+    <string name="safeIntro">The NOAA advises that no place outside is safe when thunderstorms are in the area. If you can hear thunder then lightning is close enough to strike.\n
+    	\n<b>Seek shelter in a substantial structure</b> and remain there until after the threat has passed. Stay off electrical equipment like the phone or computer and avoid plumbing like sinks and bathtubs. Do not lie or lean against concrete floors or walls and avoid windows and exterior doors.\n
+    	\n<b>If you cannot get indoors</b> then avoid elevated areas like hills, ridges and peaks. Avoid objects that conduct electricity such as power lines or metal fences. Immediately get out and away from bodies of water like lakes and ponds. NEVER seek shelter under a large tree, a cliff, or a rock overhang, and NEVER lie flat on the ground. If at all possible take shelter in a nearby vehicle or building.\n     
+    	\n<b>If someone is struck</b> they may need immediate medical attention. DO NOT WAIT to approach - victims do not carry an electrical charge. Call for help and administer CPR or AED as necessary.
+    </string>
+    <string name="safeLinks">The <a href="http://www.lightningsafety.noaa.gov/more.htm">NOAA</a> provides a number of public service announcements for lightning safety:\n
+		\n<a href="http://docs.google.com/viewer?url=http://www.lightningsafety.noaa.gov/resources/Lightning_What_you_Need_to_Know.pdf">What You Need to Know</a> (summarized above) 
+		\n<a href="http://docs.google.com/viewer?url=http://www.nws.noaa.gov/os/lightning/resources/lightning-safety.pdf">Lighting Safety for You and Your Family</a> 
+		\n<a href="http://docs.google.com/viewer?url=http://www.lightningsafety.noaa.gov/resources/lightning-noaa.pdf">NOAA Knows Lightning</a>
+		\n<a href="http://docs.google.com/viewer?url=http://www.lightningsafety.noaa.gov/resources/on_the_job.pdf">Lightning Safety on the Job</a> 
+		\n<a href="http://www.lightningsafety.noaa.gov/myths.htm">Lightning Myths</a></string> 
+	<string name="safeDisclaimer"><small>The information provided here summarizes PSAs made available by the NOAA. It is presented in the interest of public safety.\n\nThunder StopWatch is not affiliated with the NOAA.</small></string>
+
+    <!-- Log Activity -->
+    <string name="log_empty_start">--:--:--</string>
+    <string name="log_empty_elapsed">--.--</string>
+    <string name="log_empty_distance">--.-</string>
+
+    <!-- Timer Button -->
+    <string name="lightning">Lightning</string>
+    <string name="thunder">Thunder</string>
+
+    <!-- Application Tabs -->
+    <string name="tab_simple">Timer</string>
+    <string name="tab_log">History</string>
+
+    <!-- Help Tabs -->
+    <string name="tab_safety">Safety</string>
+    <string name="tab_howto">How It Works</string>
+    <string name="tab_about">About</string>
+        
+    <string name="preference_units_title">Units</string>
+    <string name="preference_units_summary">Select the units to use when displaying distance.</string>
+
+    <string name="preference_logging_title">Use History</string>
+    <string name="preference_logging_summary">Keep a history of times and distances.</string>
+    
+    <string-array name="units">
+		<item>Feet</item>
+		<item>Yards</item>
+        <item>Miles</item>
+        <item>Meters</item>
+        <item>Kilometers</item>
+    </string-array>
+    <string-array name="units_values">
+        <item>ft</item>
+        <item>yd</item>
+        <item>mi</item>
+        <item>m</item>
+        <item>km</item>
+    </string-array>
+    
+    <string name="pref_quicktouch_title">Use QuickTouch Mode</string>
+    <string name="pref_quicktouch_summary">The timer does not wait for a full click (action on touch).</string>
+    
+    <string name="pref_theme_title">UI Theme</string>
+    <string name="pref_theme_summary">Set the appearance of the user interface (requires restart).</string>
+    
+    <string-array name="theme_list_labels">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+    <string-array name="theme_list_values">
+        <item>dark</item>
+        <item>light</item>
+    </string-array>
+    
+    <string name="preference_animate_title">Animate Transitions</string>
+    <string name="preference_animate_summary">Display panels use animation during transitions (expand, collapse).</string>
+
+    <string name="pref_camerabutton_title">Use Camera Button</string>   
+    <string name="pref_camerabutton_summary">The timer is also triggered by the camera button.</string>
+    
+    <string name="preference_history_dataset_title">List Entries</string>
+    <string name="preference_history_dataset_summary">Set the number of values displayed by the history list.</string>
+    <string name="preference_history_dataset_dialog_msg">Show up to</string>
+    <string name="preference_history_dataset_dialog_suffix">entry~entries</string>
+    
+    <string name="preference_graph_dataset_title">Graph Entries</string>
+    <string name="preference_graph_dataset_summary">Set the number of values displayed by the distance graph.</string>
+    <string name="preference_graph_dataset_dialog_msg">Show up to</string>
+    <string name="preference_graph_dataset_dialog_suffix">entry~entries</string>
+    
+    <string name="preference_graph_bracket_title">Graph Timeframe</string>
+    <string name="preference_graph_bracket_summary">Set the timeframe for values displayed by the distance graph.</string>
+    <string name="preference_graph_bracket_dialog_msg">Bracket values within</string>
+    <string name="preference_graph_bracket_dialog_suffix">hour~hours</string>  
+           
+    <string name="pref_timerview_title">Timer Display</string>  
+    <string name="pref_timerview_summary">Set the appearance of the timer (analog, digital).</string>
+    
+    <string-array name="timerview_list_labels">
+        <item>Analog</item>
+        <item>Digital</item>
+    </string-array>
+    <string-array name="timerview_list_values">
+        <item>analog</item>
+        <item>digital</item>
+    </string-array>   
+       
+    <!-- panels -->
+    <string name="grapharea_title">Distance Graph</string>
+    <string name="timesincearea_title">Last Flash Time</string>
+    
+    <!-- Options Menu -->
+    <string name="menu_item_help">Help</string>
+    <string name="menu_item_settings">Settings</string>
+    <string name="menu_item_clear">Clear History</string>
+    <string name="menu_item_calc">Calculate Distance</string>
+    
+    <!-- Graph / List Context Menu -->
+    <string name="menu_item_graph_dataset">Graph Entries</string>
+    <string name="menu_item_graph_bracket">Graph Timeframe</string>
+    <string name="menu_item_history_delete">Delete Entry</string>
+
+    <!-- Dialog Messages -->
+    <string name="msg_delete_confirm">Are you sure you want to delete entry %s?</string>
+    <string name="msg_clear_confirm">Are you sure you want to clear the history?</string>
+           
+</resources>

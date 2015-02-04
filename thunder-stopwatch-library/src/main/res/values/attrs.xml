@@ -1,0 +1,35 @@
+<resources>
+    <declare-styleable name="AppTheme">
+        
+        <attr name="panelTitleColor" format="reference" />
+        
+   		<attr name="mainActivityBackground" format="reference" />
+   		<attr name="displayFieldBackground" format="reference" />
+   		<attr name="displayFieldColor1" format="reference" />
+   		<attr name="displayFieldColor2" format="reference" />
+   		<attr name="displayFieldColor3" format="reference" />
+   		
+        <attr name="tabBackground" format="reference" />
+        <attr name="tabTextColor" format="reference" />
+        <attr name="horizontalRuleColor" format="reference" />
+          		
+   		<attr name="graphBackgroundColor" format="reference" />
+   		<attr name="graphGridColor" format="reference" />
+
+   		<attr name="graphRangeOriginColor" format="reference" />
+   		<attr name="graphRangeLabelColor" format="reference" />
+   		<attr name="graphRangeTitleColor" format="reference" />
+   		<attr name="graphRangeOriginLabelColor" format="reference" />
+
+   	    <attr name="graphDomainOriginColor" format="reference" />
+   		<attr name="graphDomainLabelColor" format="reference" />		
+   		<attr name="graphDomainTitleColor" format="reference" />
+   		<attr name="graphDomainOriginLabelColor" format="reference" />
+   		
+   		<attr name="graphLineColor" format="reference" />
+   		<attr name="graphPointColor" format="reference" />
+   		<attr name="graphFillStartColor" format="reference" />
+   		<attr name="graphFillEndColor" format="reference" />
+   		
+   	</declare-styleable>
+</resources>

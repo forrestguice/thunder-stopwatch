@@ -1,0 +1,131 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        Copyright (C) 2010 Forrest Guice
+        This file is part of Thunder-Stopwatch.
+
+        Thunder-Stopwatch is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        Thunder-Stopwatch is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+    -->
+
+    <!--             -->
+    <!-- THEME: Dark -->
+    <!--             -->
+    <style name="dark" parent="android:Theme">
+         <item name="panelTitleColor">@color/panelcolordark</item>
+         
+         <item name="tabBackground">@drawable/tabbackgrounddark</item>
+         <item name="tabTextColor">@color/tabtextcolordark</item>
+         <item name="horizontalRuleColor">@color/silver</item>
+         <item name="mainActivityBackground">@drawable/backgrounddark</item>
+         
+         <item name="displayFieldBackground">@drawable/displayfieldbackgrounddark</item>        
+         <item name="displayFieldColor1">@color/displayfieldcolordark</item>
+         <item name="displayFieldColor2">@color/displayfieldcolordark</item>
+         <item name="displayFieldColor3">@color/displayfieldcolordark</item>
+        
+         <item name="graphBackgroundColor">@color/silver</item>
+   		 <item name="graphGridColor">@color/black</item>
+   		 <item name="graphDomainOriginColor">@color/silver</item>
+   		 <item name="graphRangeOriginColor">@color/silver</item>
+   		 <item name="graphDomainLabelColor">@color/silver</item>
+   		 <item name="graphRangeLabelColor">@color/silver</item>
+   		 <item name="graphDomainTitleColor">@color/white</item>
+   		 <item name="graphRangeTitleColor">@color/white</item>
+   		 <item name="graphDomainOriginLabelColor">@color/silver</item>
+   		 <item name="graphRangeOriginLabelColor">@color/silver</item>
+   		 <item name="graphLineColor">@color/orange</item>
+   		 <item name="graphPointColor">@color/yellow</item>
+   		 <item name="graphFillStartColor">@color/white</item>
+   		 <item name="graphFillEndColor">@color/yellow</item>
+    
+    </style>
+    
+    <!--              -->
+    <!-- THEME: Light -->
+    <!--              -->
+    <style name="light" parent="android:Theme.Light">
+         <item name="panelTitleColor">@color/panelcolorlight</item>
+        
+         <item name="tabBackground">@drawable/tabbackgroundlight</item>
+         <item name="tabTextColor">@color/tabtextcolorlight</item>
+         <item name="horizontalRuleColor">@color/gray</item>
+         <item name="mainActivityBackground">@drawable/backgroundlight</item>    
+         
+         <item name="displayFieldBackground">@drawable/displayfieldbackgroundlight</item>    
+         <item name="displayFieldColor1">@color/displayfieldcolorlight</item>
+         <item name="displayFieldColor2">@color/displayfieldcolorlight</item>
+         <item name="displayFieldColor3">@color/displayfieldcolorlight</item>
+      	 
+      	 <item name="graphBackgroundColor">@color/white</item>
+   		 <item name="graphGridColor">@color/black</item>
+   		 <item name="graphDomainOriginColor">@color/black</item>
+   		 <item name="graphRangeOriginColor">@color/black</item>
+   		 <item name="graphDomainLabelColor">@color/black</item>
+   		 <item name="graphRangeLabelColor">@color/black</item>
+   		 <item name="graphDomainTitleColor">@color/black</item>
+   		 <item name="graphRangeTitleColor">@color/black</item>
+ 	     <item name="graphDomainOriginLabelColor">@color/black</item>
+   		 <item name="graphRangeOriginLabelColor">@color/black</item>
+   		 <item name="graphLineColor">@color/black</item>
+   		 <item name="graphPointColor">@color/orange</item>
+   		 <item name="graphFillStartColor">@color/white</item>
+   		 <item name="graphFillEndColor">@color/yellow</item>
+   		 
+    </style>
+
+    <!--              -->
+    <!-- OTHER STYLES -->
+    <!--              -->
+    
+    <style name="timerButtonStyle">
+        <item name="android:textOn">@string/thunder</item>
+        <item name="android:textOff">@string/lightning</item>
+    </style>
+       
+    <style name="InputFieldStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+		<item name="android:ems">10</item>
+		<item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:digits">@string/localized_digits</item>
+		<item name="android:inputType">numberDecimal</item>
+    </style>
+    
+    <style name="horizontalRule">
+        <item name="android:layout_width">fill_parent</item> 
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_gravity">center_vertical|center_horizontal</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">?horizontalRuleColor</item>
+    </style>   
+    
+    <style name="tabTextAppearance" parent="android:style/TextAppearance.Large">
+    </style>
+    
+    <style name="helpTitleTextStyle">
+    	<item name="android:layout_width">wrap_content</item>
+     	<item name="android:layout_height">wrap_content</item>
+     	<item name="android:layout_marginTop">5dp</item>
+     	<item name="android:layout_marginBottom">2dp</item>
+     	<item name="android:textAppearance">@style/helpTitleTextAppearance</item>
+    </style>
+    
+    <style name="helpTitleTextAppearance" parent="android:style/TextAppearance.Large">
+    	<item name="android:textStyle">bold</item>
+    </style>
+        
+</resources>

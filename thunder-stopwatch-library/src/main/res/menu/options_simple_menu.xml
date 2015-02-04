@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2010 Forrest Guice
+    This file is part of Thunder-Stopwatch.
+
+    Thunder-Stopwatch is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Thunder-Stopwatch is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Thunder-Stopwatch.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- <item android:id="@+id/menu_item_clear"
+         android:icon="@drawable/ic_menu_clear_list"
+	 android:title="@string/menu_item_clear" /> -->
+
+   <!--
+   <item android:id="@+id/menu_item_units"
+         android:icon="@drawable/ic_menu_manage"
+	 android:title="@string/menu_item_units" >
+      <menu xmlns:android="http://schemas.android.com/apk/res/android">
+         <group android:checkableBehavior="single">
+  	    <item android:id="@+id/menu_item_units_english"
+            android:title="@string/menu_units_english" />
+
+  	    <item android:id="@+id/menu_item_units_metric"
+            android:title="@string/menu_units_metric" />
+         </group>
+      </menu>
+   </item>
+   -->
+
+   <item android:id="@+id/menu_item_calc"
+         android:icon="@drawable/ic_menu_more"
+		 android:title="@string/menu_item_calc" />
+
+   <item android:id="@+id/menu_item_help"
+         android:icon="@drawable/ic_menu_help"
+         android:title="@string/menu_item_help" />
+
+   <item android:id="@+id/menu_item_settings"
+         android:icon="@drawable/ic_menu_preferences"
+         android:title="@string/menu_item_settings" />
+
+</menu>

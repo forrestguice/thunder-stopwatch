@@ -23,7 +23,7 @@
     <string name="distance_dist_hint">Distance</string>
     
     <string name="headerHow">How It Works</string>
-    <string name="txtHow">Press the button to start the timer when you see a flash of lighting. Press the button again to stop the timer when you hear the corresponding sound of thunder.\n\nLight travels extremely fast (186,000 mi/s) so we see lightning almost immediately, but the sound of thunder is a wave of vibrating air molecules that travels through the atmosphere at a much slower speed. The exact speed of sound varies depending on temperature and humidity but an approximate speed is one mile every five seconds (or one kilometer every three seconds).\n\nRemember that speed = distance / time. We know the approximate speed of sound (1/5 mi/s) and we know how long it took the sound to reach us (in seconds) so we can determine the distance by rearranging the equation.\n\n
+    <string name="txtHow">Press the button to start the timer when you see a flash of lighting. Press the button again to stop the timer when you hear the corresponding sound of thunder.\n\nLight travels extremely fast (186,000 mi/s) so we see lightning almost immediately, but the sound of thunder is a wave of vibrating air molecules that travels through the atmosphere at a much slower speed. The exact speed of sound varies depending on temperature and humidity but an approximate speed is one mile every five seconds (or one kilometer every three seconds).\n\nWe know that speed = distance / time. We know the approximate speed of sound (1/5 mi/s) and we know how long it took the sound to reach us (in seconds) so we can determine the distance by rearranging the equation.\n\n
 
 <small>
 \tspeed = distance / time\n
@@ -35,7 +35,7 @@
 \tdistance (in km) = 1/3 km/s * time (in seconds)\n
 \tdistance (in km) = time (in seconds) / 3
 </small>
-\n\nThe next time you want to know how far away a lightning strike was, count how many seconds it takes the thunder to reach you, then divide by 5 (or 3).\n\nFor example if it takes thunder 10s to reach you, the lightning strike was 2 miles away. If you can see lightning but cannot hear thunder then the strike was probably more than 10 miles away.\n\nThunder StopWatch performs this simple calculation using a slightly more accurate (but still approximate) speed of sound.       
+\n\nThe next time you want to know how far away a lightning strike was, count how many seconds it takes the thunder to reach you, then divide by 5 (or 3).\n\nFor example if it takes thunder 10s to reach you, the lightning strike was 2 miles away. If you can see lightning but cannot hear thunder then the strike was probably more than 10 miles away.
     </string>
     
     <string name="headerSafety">When Thunder Roars, Go Indoors!</string>

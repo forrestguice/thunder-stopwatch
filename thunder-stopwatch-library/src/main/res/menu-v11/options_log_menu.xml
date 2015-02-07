@@ -19,36 +19,24 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<!-- <item android:id="@+id/menu_item_clear"
+    <item android:id="@+id/menu_item_clear"
          android:icon="@drawable/ic_menu_clear_list"
-	 android:title="@string/menu_item_clear" /> -->
+         android:title="@string/menu_item_clear"
+         android:showAsAction="ifRoom"/>
 
-   <!--
-   <item android:id="@+id/menu_item_units"
-         android:icon="@drawable/ic_menu_manage"
-	 android:title="@string/menu_item_units" >
-      <menu xmlns:android="http://schemas.android.com/apk/res/android">
-         <group android:checkableBehavior="single">
-  	    <item android:id="@+id/menu_item_units_english"
-            android:title="@string/menu_units_english" />
+    <item android:id="@+id/menu_item_calc"
+        android:icon="@drawable/ic_menu_more"
+        android:title="@string/menu_item_calc"
+        android:showAsAction="ifRoom"/>
 
-  	    <item android:id="@+id/menu_item_units_metric"
-            android:title="@string/menu_units_metric" />
-         </group>
-      </menu>
-   </item>
-   -->
-
-   <item android:id="@+id/menu_item_calc"
-         android:icon="@drawable/ic_menu_more"
-		 android:title="@string/menu_item_calc" />
-
-   <item android:id="@+id/menu_item_help"
+    <item android:id="@+id/menu_item_help"
          android:icon="@drawable/ic_menu_help"
-         android:title="@string/menu_item_help" />
+         android:title="@string/menu_item_help"
+         android:showAsAction="collapseActionView"/>
 
    <item android:id="@+id/menu_item_settings"
-         android:icon="@drawable/ic_menu_preferences"
-         android:title="@string/menu_item_settings" />
+         android:icon="@drawable/ic_action_settings"
+         android:title="@string/menu_item_settings"
+         android:showAsAction="collapseActionView"/>
 
 </menu>

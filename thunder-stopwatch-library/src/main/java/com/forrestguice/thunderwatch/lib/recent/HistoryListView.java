@@ -64,7 +64,7 @@ public class HistoryListView extends CollapsableLayout
 	public static final int DEFAULT_SPACES_MI = 6;
 	
 	private HistoryListViewTask task;
-	private SelectedItemInfo selectedItem;
+	private SelectedItemInfo selectedItem = null;
 	
 	private java.text.DateFormat timeFormat;
 	private java.text.DateFormat dateFormat;
@@ -524,7 +524,10 @@ public class HistoryListView extends CollapsableLayout
         	dateTimeSeparator = ", ";
         	break;
         }*/
-        if (landscape) dateTimeSeparator = ", ";
+        if (landscape)
+        {
+            dateTimeSeparator = ", ";
+        }
 	}
 	
 	private void removeHistoryItem( MenuItem item )
@@ -545,9 +548,12 @@ public class HistoryListView extends CollapsableLayout
 			break;
 		
 		case ThunderClockApp.DIALOG_CONFIRMDELETE_ID:
-			String msg = myParent.getString(R.string.msg_delete_confirm, selectedItem.getText());
-			AlertDialog dialog = (AlertDialog)d;
-			dialog.setMessage(msg);
+            if (selectedItem != null)
+            {
+                String msg = myParent.getString(R.string.msg_delete_confirm, selectedItem.getText());
+                AlertDialog dialog = (AlertDialog) d;
+                dialog.setMessage(msg);
+            }
 			break;
 		}
 	}
@@ -573,15 +579,18 @@ public class HistoryListView extends CollapsableLayout
 			break;
 	
 		case ThunderClockApp.DIALOG_CONFIRMDELETE_ID:
-			msg = myParent.getString(R.string.msg_delete_confirm, selectedItem.getText());
-			dialog = ViewUtilities.createConfirmationDialog(myParent, msg, new DialogInterface.OnClickListener() 
-			{				
-				@Override
-				public void onClick(DialogInterface dialog, int which) 
-				{
-					new HistoryListViewTask(HistoryListViewTask.STATE_DELETE).execute(selectedItem.getID());
-				}
-			});
+            if (selectedItem == null)
+            {
+                dialog = null;
+            } else {
+                msg = myParent.getString(R.string.msg_delete_confirm, selectedItem.getText());
+                dialog = ViewUtilities.createConfirmationDialog(myParent, msg, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new HistoryListViewTask(HistoryListViewTask.STATE_DELETE).execute(selectedItem.getID());
+                    }
+                });
+            }
 			break;
 			
 		default:

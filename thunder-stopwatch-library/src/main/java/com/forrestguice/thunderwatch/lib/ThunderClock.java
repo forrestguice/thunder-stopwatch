@@ -19,6 +19,7 @@
 package com.forrestguice.thunderwatch.lib;
 
 import android.app.Dialog;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -72,10 +73,11 @@ public class ThunderClock extends TabActivity
 		tabHost.setCurrentTab(0);
 		tabHost.clearAllTabs();
 
-		Display display = ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay(); 
 		boolean smallTabs = true;
-		int screen_orientation = display.getOrientation();
-		if (screen_orientation == Surface.ROTATION_90 || screen_orientation == Surface.ROTATION_270) smallTabs = true;
+        //if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+        //{
+        //    smallTabs = true;
+        //}
 
 		// Simple View
 		intent = ActivityUtil.createIntent(this, SimpleThunderClockView.class);
@@ -108,8 +110,13 @@ public class ThunderClock extends TabActivity
                 }
             }
         });
-		
-		tabHost.setCurrentTab(currentTab);
+
+        if (Build.VERSION.SDK_INT >= 11)
+        {
+            tabHost.getTabWidget().setDividerDrawable(android.R.color.transparent);
+        }
+
+        tabHost.setCurrentTab(currentTab);
 	}
 
     @Override

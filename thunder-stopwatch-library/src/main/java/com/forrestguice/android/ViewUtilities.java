@@ -31,15 +31,15 @@ public class ViewUtilities
 	{
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 		builder.setMessage(msg)
-		.setCancelable(false)
-		.setPositiveButton(context.getString(R.string.yes), l)
-		.setNegativeButton(context.getString(R.string.no), new DialogInterface.OnClickListener() 
-		{
-			public void onClick(DialogInterface dialog, int id) 
-			{
-				dialog.cancel();
-			}
-		});
+		       .setCancelable(false)
+		       .setPositiveButton(context.getString(R.string.yes), l)
+		       .setNegativeButton(context.getString(R.string.no), new DialogInterface.OnClickListener()
+		       {
+			       public void onClick(DialogInterface dialog, int id)
+			       {
+				       dialog.cancel();
+			       }
+		       });
 		return builder.create();
 	}
 

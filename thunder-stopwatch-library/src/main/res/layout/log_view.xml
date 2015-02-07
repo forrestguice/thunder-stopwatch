@@ -85,6 +85,9 @@
 	<ToggleButton android:id="@+id/button_trigger"
 	    style="@style/timerButtonStyle"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:layout_weight="0" />
+		android:layout_weight="0"
+        android:layout_marginTop="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginRight="-3dp" />
 
 </LinearLayout>

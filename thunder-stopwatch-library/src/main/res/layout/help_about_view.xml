@@ -57,6 +57,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_desc" />
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,11 +70,6 @@
             android:layout_height="wrap_content"
             android:text="@string/app_support_notice" />
 
-        <TextView
-            android:id="@+id/label_legal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_copyright" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,6 +81,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_legal_notice" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_copyright_header"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_legal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_copyright" />
+
+
     </LinearLayout>
 
 </ScrollView>

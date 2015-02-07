@@ -48,8 +48,16 @@ public class ThunderClockHelp extends TabActivity
       // (re)populate tabs
       int currentTab = tabHost.getCurrentTab();
       tabHost.setCurrentTab(0);   
-      tabHost.clearAllTabs();   
-      
+      tabHost.clearAllTabs();
+
+      // About View
+      intent = ActivityUtil.createIntent(this, HelpAboutThunderClockView.class);
+      spec = tabHost.newTabSpec("about");
+      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_about));
+      spec.setIndicator(indicator);
+      spec.setContent(intent);
+      tabHost.addTab(spec);
+
       // Safety View
       intent = ActivityUtil.createIntent(this, HelpSafetyThunderClockView.class);
       spec = tabHost.newTabSpec("safety");
@@ -62,14 +70,6 @@ public class ThunderClockHelp extends TabActivity
       intent = ActivityUtil.createIntent(this, HelpHowtoThunderClockView.class);
       spec = tabHost.newTabSpec("howto");
       indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_howto));
-      spec.setIndicator(indicator);
-      spec.setContent(intent);
-      tabHost.addTab(spec);
-
-      // About View
-      intent = ActivityUtil.createIntent(this, HelpAboutThunderClockView.class);
-      spec = tabHost.newTabSpec("about");
-      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_about));
       spec.setIndicator(indicator);
       spec.setContent(intent);
       tabHost.addTab(spec);

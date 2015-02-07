@@ -19,6 +19,7 @@
 package com.forrestguice.thunderwatch.lib;
 
 import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -101,7 +102,10 @@ public class ThunderClock extends TabActivity
             @Override
             public void onTabChanged(String s)
             {
-                invalidateOptionsMenu();
+                if (Build.VERSION.SDK_INT >= 11)
+                {
+                    invalidateOptionsMenu();
+                }
             }
         });
 		

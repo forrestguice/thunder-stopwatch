@@ -19,10 +19,8 @@
 package com.forrestguice.thunderwatch.lib;
 
 import android.app.Dialog;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TabHost;
 import android.app.TabActivity;
@@ -34,8 +32,6 @@ import android.widget.TextView;
 import android.view.WindowManager;
 import android.view.Display;
 import android.view.Surface;
-
-import com.forrestguice.android.CollapsableLayout;
 
 public class ThunderClock extends TabActivity
 {	
@@ -112,8 +108,6 @@ public class ThunderClock extends TabActivity
 		tabHost.setCurrentTab(currentTab);
 	}
 
-
-
     @Override
     public boolean onCreateOptionsMenu( Menu menu )
     {
@@ -151,8 +145,6 @@ public class ThunderClock extends TabActivity
         ThunderClockActivity currentActivity = (ThunderClockActivity)getLocalActivityManager().getActivity(currentActivityId);
         currentActivity.onPrepareDialog(id, dialog);
     }
-
-
 
     protected BroadcastReceiver updateReceiver = new BroadcastReceiver()
 	{

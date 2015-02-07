@@ -22,6 +22,8 @@ import com.forrestguice.android.CollapsableLayout;
 import com.forrestguice.android.TimeUtility;
 import com.forrestguice.thunderwatch.lib.*;
 
+import android.util.TypedValue;
+
 import java.text.DecimalFormat;
 import java.text.FieldPosition;
 import java.text.Format;
@@ -76,6 +78,7 @@ public class ThemedGraph extends CollapsableLayout implements View.OnCreateConte
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_graph, this);
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
+        setSupportsOptionalDialog(true);
 		initGraph(context);
 	}
 	
@@ -85,6 +88,7 @@ public class ThemedGraph extends CollapsableLayout implements View.OnCreateConte
 		final LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.widget_graph, this);	
 		setMainContent((ViewGroup)findViewById(R.id.layout_mainContent));
+        setSupportsOptionalDialog(true);
 		initGraph(context);
 	}
 		
@@ -206,26 +210,42 @@ public class ThemedGraph extends CollapsableLayout implements View.OnCreateConte
 	
 	@Override
 	protected void onDialogPrepare(Dialog d)
-	{	
+	{
+        xyPlot.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+        mainContent.removeView(xyPlot);
+        d.setContentView(xyPlot);
 		xyPlot.setVisibility(View.VISIBLE);
 	}
 	
 	protected void onDialogDismiss(Dialog d) 
 	{
+        View v = new View(mainContent.getContext());
+        d.setContentView(v);
+
+        if (xyPlot.getParent() != mainContent) {
+            mainContent.addView(xyPlot);
+        }
+
+        ViewGroup.LayoutParams layoutParams = xyPlot.getLayoutParams();
+        int pixels = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 150, getResources().getDisplayMetrics());
+        layoutParams.height = pixels;
+        xyPlot.setLayoutParams(layoutParams);
 	}
 	
 	protected void onDialogCancel(Dialog d) 
 	{
-		
 	}
 	
 	@Override
 	protected void onDialogInit(Dialog d)
 	{
-		xyPlot.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		mainContent.removeView(xyPlot);
-		d.setContentView(xyPlot);
 	}
+
+    //@Override
+    //protected void onDialogDestroy(Dialog d)
+    //{
+    //    mainContent.addView(xyPlot);
+    //}
 	
 	@Override
 	public void onRefreshDisplay()

@@ -31,19 +31,20 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.Surface;
+//import android.view.Display;
+//import android.view.Surface;
+//import android.view.WindowManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.content.res.Configuration;
 
 public abstract class CollapsableLayout extends LinearLayout
 {	
@@ -71,6 +72,7 @@ public abstract class CollapsableLayout extends LinearLayout
 	
 	private CollapsableLayoutDialog dialog;	
 	private boolean animate = DEFAULT_SETTING_ANIMATE;
+    private boolean supportsOptionalDialog = false;
 	
 	public ArrayList<CollapsableLayout> companions = new ArrayList<CollapsableLayout>();
 	
@@ -119,7 +121,12 @@ public abstract class CollapsableLayout extends LinearLayout
 	{
 		mode = m;
 	}
-	
+
+    public void setSupportsOptionalDialog( boolean value )
+    {
+        supportsOptionalDialog = value;
+    }
+
 	public void setTitle(String t)
 	{
 		int[] attrs = new int[] { R.attr.panelTitleColor };   // 0 
@@ -211,6 +218,21 @@ public abstract class CollapsableLayout extends LinearLayout
 		});
 		
 		RelativeLayout layout = (RelativeLayout)findViewById(R.id.layout_showhide);
+        layout.setOnLongClickListener(
+            new OnLongClickListener()
+            {
+                @Override
+                public boolean onLongClick(View view)
+                {
+                    if (supportsOptionalDialog) {
+                        onDialogAction();
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        );
 		layout.setOnTouchListener( new View.OnTouchListener() {
 
 			@Override
@@ -229,17 +251,23 @@ public abstract class CollapsableLayout extends LinearLayout
 					touchAction();
 					break;
 				}
-				return true;
+				return false;
 			}
 		});
-		
-		Display display = ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay(); 
+
 		landscape = false;
-		int screen_orientation = display.getOrientation();
-		if (screen_orientation == Surface.ROTATION_90 || screen_orientation == Surface.ROTATION_270)
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
             landscape = true;
         }
+
+        //landscape = false; // this approach doesn't always work, especially on tablets where default orientation might be landscape
+        //Display display = ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        //int screen_orientation = display.getOrientation();
+		//if (screen_orientation == Surface.ROTATION_90 || screen_orientation == Surface.ROTATION_270)
+        //{
+        //    landscape = true;
+        //}
 	}
 		
 	public void pauseWidget()
@@ -267,14 +295,20 @@ public abstract class CollapsableLayout extends LinearLayout
 		case MODE_OPEN:
 			txt.setVisibility(View.GONE);
 			btn_showHide.setVisibility(View.GONE);
-			if (mainContent != null) mainContent.setVisibility(View.VISIBLE);
+			if (mainContent != null)
+            {
+                mainContent.setVisibility(View.VISIBLE);
+            }
 			break;
 			
 		case MODE_DIALOG:
 			txt.setVisibility(View.VISIBLE);
 			btn_showHide.setVisibility(View.VISIBLE);
 			btn_showHide.setImageResource(R.drawable.showhide_button_hiding);
-			if (mainContent != null) mainContent.setVisibility(View.GONE);
+			if (mainContent != null)
+            {
+                mainContent.setVisibility(View.GONE);
+            }
 			break;
 			
 		case MODE_EXPAND:
@@ -299,7 +333,10 @@ public abstract class CollapsableLayout extends LinearLayout
 	
 	protected void onDialogAction()
 	{
-		if (dialog == null) dialog = new CollapsableLayoutDialog(myParent);
+		if (dialog == null)
+        {
+            dialog = new CollapsableLayoutDialog(myParent);
+        }
 		dialog.onPrepareDialog();
 		dialog.show();
 	}
@@ -311,11 +348,12 @@ public abstract class CollapsableLayout extends LinearLayout
 	public void onPrepareDialog(int id, Dialog dialog) 
 	{
 	}
-	
+
 	protected void onDialogDismiss(Dialog d) {}
 	protected void onDialogCancel(Dialog d) {}
 	protected void onDialogPrepare(Dialog d) {}
 	protected void onDialogInit(Dialog d) {}
+    //protected void onDialogDestroy(Dialog d) {}
 		
 	protected void onShowAction()
 	{

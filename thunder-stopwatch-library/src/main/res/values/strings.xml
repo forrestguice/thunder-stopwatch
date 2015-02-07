@@ -8,22 +8,43 @@
 
     <string name="app_name">Thunder Stopwatch</string>
     <string name="app_version">0.4.0</string>
+    <string name="app_desc">Thunder Stopwatch is a toy app that estimates the distance to a flash of lightning.</string>
+
+    <string name="app_copyright_header">Legal Stuff</string>
+    <string name="app_copyright">Copyright &#169; 2010 Forrest Guice\n
+
+    \nThis program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.\n
+
+    \nThis program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.\n
+
+    \nYou should have received a copy of the GNU General Public License
+    along with this program.  If not, see <a href='http://www.gnu.org/licenses/'>&lt;http://www.gnu.org/licenses/&gt;</a>.\n\n
+
+    \n<b>Plotting provided by:</b>
+    \nAndroidPlot (<a href='http://androidplot.com/about/'>http://androidplot.com/about/</a>).
+    \nCopyright &#169; 2010 AndroidPlot.com\n
+    </string>
+
+    <string name="app_legal_header">\nDisclaimer</string>
+    <string name="app_legal_notice">Thunderstorms are dangerous! Nothing replaces your own common sense. The author takes no liability for potentially dangerous actions performed while using this application, including but not limited to standing out in a thunderstorm while using a phone. Be safe!\n</string>
+
+    <string name="app_support_header">\nApp Support</string>
+    <string name="app_support_notice">Submit a <a href='https://github.com/forrestguice/thunder-stopwatch/issues'>bug report</a> or browse the <a href='https://github.com/forrestguice/thunder-stopwatch?files=1'>source code</a>.</string>
+
+    <string name="distance_time_hint">Time (seconds)</string>
+    <string name="distance_dist_hint">Distance</string>
 
     <string name="app_settings">Thunder Stopwatch Settings</string>
     <string name="app_help">Thunder Stopwatch Help</string>
-    <string name="app_copyright">\nCopyright 2010 Forrest Guice\nAll rights reserved.\n\nPlotting provided by:\nAndroidPlot (http://androidplot.com).\nCopyright 2010 AndroidPlot.com\nAll rights reserved.</string>
-    <string name="app_desc">Thunder Stopwatch is a simple timer that estimates the distance to a flash of lightning.</string>
 
-    <string name="app_legal_header">\nLegal Disclaimer</string>
-    <string name="app_legal_notice">Thunderstorms are dangerous! Nothing replaces your own common sense. The author takes no liability for potentially dangerous actions performed while using this application, including but not limited to standing out in a thunderstorm while using a phone. Be safe!</string>
-    <string name="app_support_header">\nApp Support</string>
-    <string name="app_support_notice"><a href='https://sites.google.com/site/forrestguice/mobile-apps/email-support'>Send an email</a> for app support.</string>   
-    
-    <string name="distance_time_hint">Time (seconds)</string>
-    <string name="distance_dist_hint">Distance</string>
-    
     <string name="headerHow">How It Works</string>
-    <string name="txtHow">Press the button to start the timer when you see a flash of lighting. Press the button again to stop the timer when you hear the corresponding sound of thunder.\n\nLight travels extremely fast (186,000 mi/s) so we see lightning almost immediately, but the sound of thunder is a wave of vibrating air molecules that travels through the atmosphere at a much slower speed. The exact speed of sound varies depending on temperature and humidity but an approximate speed is one mile every five seconds (or one kilometer every three seconds).\n\nRemember that speed = distance / time. We know the approximate speed of sound (1/5 mi/s) and we know how long it took the sound to reach us (in seconds) so we can determine the distance by rearranging the equation.\n\n
+    <string name="txtHow">Press the button to start the timer when you see a flash of lighting. Press the button again to stop the timer when you hear the corresponding sound of thunder.\n\nLight travels extremely fast (186,000 mi/s) so we see lightning almost immediately, but the sound of thunder is a wave of vibrating air molecules that travels through the atmosphere at a much slower speed. The exact speed of sound varies depending on temperature and humidity but an approximate speed is one mile every five seconds (or one kilometer every three seconds).\n\nWe know that speed = distance / time. We know the approximate speed of sound (1/5 mi/s) and we know how long it took the sound to reach us (in seconds) so we can determine the distance by rearranging the equation.\n\n
 
 <small>
 \tspeed = distance / time\n
@@ -35,7 +56,7 @@
 \tdistance (in km) = 1/3 km/s * time (in seconds)\n
 \tdistance (in km) = time (in seconds) / 3
 </small>
-\n\nThe next time you want to know how far away a lightning strike was, count how many seconds it takes the thunder to reach you, then divide by 5 (or 3).\n\nFor example if it takes thunder 10s to reach you, the lightning strike was 2 miles away. If you can see lightning but cannot hear thunder then the strike was probably more than 10 miles away.\n\nThunder StopWatch performs this simple calculation using a slightly more accurate (but still approximate) speed of sound.       
+\n\nThe next time you want to know how far away a lightning strike was, count how many seconds it takes the thunder to reach you, then divide by 5 (or 3).\n\nFor example if it takes thunder 10s to reach you, the lightning strike was 2 miles away. If you can see lightning but cannot hear thunder then the strike was probably more than 10 miles away.
     </string>
     
     <string name="headerSafety">When Thunder Roars, Go Indoors!</string>
@@ -50,7 +71,7 @@
 		\n<a href="http://docs.google.com/viewer?url=http://www.lightningsafety.noaa.gov/resources/lightning-noaa.pdf">NOAA Knows Lightning</a>
 		\n<a href="http://docs.google.com/viewer?url=http://www.lightningsafety.noaa.gov/resources/on_the_job.pdf">Lightning Safety on the Job</a> 
 		\n<a href="http://www.lightningsafety.noaa.gov/myths.htm">Lightning Myths</a></string> 
-	<string name="safeDisclaimer"><small>The information provided here summarizes PSAs made available by the NOAA. It is presented in the interest of public safety.\n\nThunder StopWatch is not affiliated with the NOAA.</small></string>
+	<string name="safeDisclaimer"><small>The information provided here summarizes PSAs made available by the NOAA. It is presented in the interest of public safety.\n\nThis application is not affiliated with the NOAA.</small></string>
 
     <!-- Log Activity -->
     <string name="log_empty_start">--:--:--</string>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="darktheme" parent="android:Theme.Holo">
+        <item name="android:actionBarStyle">@android:style/Widget.ActionBar</item>
+    </style>
+
+    <style name="lighttheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@android:style/Widget.ActionBar</item>
+    </style>
+
+</resources>

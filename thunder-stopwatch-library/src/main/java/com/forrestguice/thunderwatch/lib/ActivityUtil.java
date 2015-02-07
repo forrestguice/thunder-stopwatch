@@ -28,7 +28,7 @@ import android.widget.TextView;
 
 public class ActivityUtil 
 {
-	public static final String DEFAULT_THEME = "light";
+	public static final String DEFAULT_THEME = "dark";
 	
 	private static Class<?> getActivityClass(Context context, Class<?> classObj) 
 	{

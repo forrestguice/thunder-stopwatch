@@ -18,7 +18,10 @@
 
 package com.forrestguice.thunderwatch.lib;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TabHost;
 import android.app.TabActivity;
 import android.content.Context;
@@ -92,11 +95,58 @@ public class ThunderClock extends TabActivity
 			spec.setContent(intent);
 			tabHost.addTab(spec);
 		}
+
+        tabHost.setOnTabChangedListener( new TabHost.OnTabChangeListener()
+        {
+            @Override
+            public void onTabChanged(String s)
+            {
+                invalidateOptionsMenu();
+            }
+        });
 		
 		tabHost.setCurrentTab(currentTab);
 	}
-	
-	protected BroadcastReceiver updateReceiver = new BroadcastReceiver()
+
+    @Override
+    public boolean onCreateOptionsMenu( Menu menu )
+    {
+        String currentActivityId = getLocalActivityManager().getCurrentId();
+        ThunderClockActivity currentActivity = (ThunderClockActivity)getLocalActivityManager().getActivity(currentActivityId);
+        return currentActivity.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu( Menu menu )
+    {
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item )
+    {
+        String currentActivityId = getLocalActivityManager().getCurrentId();
+        ThunderClockActivity currentActivity = (ThunderClockActivity)getLocalActivityManager().getActivity(currentActivityId);
+        return currentActivity.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected Dialog onCreateDialog( int id )
+    {
+        String currentActivityId = getLocalActivityManager().getCurrentId();
+        ThunderClockActivity currentActivity = (ThunderClockActivity)getLocalActivityManager().getActivity(currentActivityId);
+        return currentActivity.onCreateDialog(id);
+    }
+
+    @Override
+    protected void onPrepareDialog(int id, Dialog dialog)
+    {
+        String currentActivityId = getLocalActivityManager().getCurrentId();
+        ThunderClockActivity currentActivity = (ThunderClockActivity)getLocalActivityManager().getActivity(currentActivityId);
+        currentActivity.onPrepareDialog(id, dialog);
+    }
+
+    protected BroadcastReceiver updateReceiver = new BroadcastReceiver()
 	{
 		@Override
 		public void onReceive( Context context, Intent intent )

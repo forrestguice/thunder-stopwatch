@@ -20,7 +20,7 @@
     <!--             -->
     <!-- THEME: Dark -->
     <!--             -->
-    <style name="dark" parent="android:Theme">
+    <style name="dark" parent="darktheme">
          <item name="panelTitleColor">@color/panelcolordark</item>
          
          <item name="tabBackground">@drawable/tabbackgrounddark</item>
@@ -53,7 +53,7 @@
     <!--              -->
     <!-- THEME: Light -->
     <!--              -->
-    <style name="light" parent="android:Theme.Light">
+    <style name="light" parent="lighttheme">
          <item name="panelTitleColor">@color/panelcolorlight</item>
         
          <item name="tabBackground">@drawable/tabbackgroundlight</item>

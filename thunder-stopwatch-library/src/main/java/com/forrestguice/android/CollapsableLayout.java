@@ -67,7 +67,8 @@ public abstract class CollapsableLayout extends LinearLayout
 	protected Activity myParent;
 	protected String myName;
 	protected ViewGroup mainContent;
-	public boolean landscape; 
+	public boolean landscape;
+    public int screensize;
 	protected int mode = MODE_EXPAND;
 	
 	private CollapsableLayoutDialog dialog;	
@@ -260,6 +261,7 @@ public abstract class CollapsableLayout extends LinearLayout
         {
             landscape = true;
         }
+        screensize = (getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK);
 
         //landscape = false; // this approach doesn't always work, especially on tablets where default orientation might be landscape
         //Display display = ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();

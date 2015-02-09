@@ -18,33 +18,35 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="horizontal" >
 
     <com.forrestguice.thunderwatch.lib.timer.AnalogTimerView
         android:id="@+id/customAnalogClock"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
         android:background="?displayFieldBackground"
         android:text="analogtimer"
-        android:visibility="gone" />
+        android:visibility="visible"
+        android:layout_weight="6" />
 
     <com.forrestguice.thunderwatch.lib.timer.DigitalTimerView
         android:id="@+id/digitaltimer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:background="?displayFieldBackground"
         android:gravity="center"
         android:orientation="vertical"
         android:text="digitaltimer"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_weight="6" />
 
     <ToggleButton
         android:id="@+id/button_trigger"
@@ -52,8 +54,8 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="7dp"        
-        android:layout_weight="1" />
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="-2dp"
+        android:layout_weight="4" />
 
 </LinearLayout>

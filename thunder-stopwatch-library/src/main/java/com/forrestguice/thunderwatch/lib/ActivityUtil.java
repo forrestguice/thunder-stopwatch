@@ -83,7 +83,7 @@ public class ActivityUtil
 		indicator.setBackgroundDrawable(a.getDrawable(0));
 		indicator.setTextColor(a.getColorStateList(1));
 		indicator.setGravity(Gravity.CENTER);
-		
+
 		if (compact)
 		{
 			indicator.setPadding(5, 5, 5, 5);

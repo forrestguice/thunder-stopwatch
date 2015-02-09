@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:state_pressed="true" >
+    <inset android:insetLeft="1dp" android:insetRight="2dp">
     <shape>
-         <gradient android:angle="90"
+        <gradient android:angle="90"
 	  		   android:startColor="#BFBFBF" 
 	    	   android:endColor="#000000" />
         <stroke
-            android:width="2dp"
+            android:width="1dp"
             android:color="#ff9900" />
         <corners
             android:radius="3dp" />
-
     </shape>
+    </inset>
 </item>
 
 <item android:state_selected="true" >
+    <inset android:insetLeft="1dp" android:insetRight="2dp">
     <shape>
-
-         <gradient android:angle="90"
+        <gradient android:angle="90"
 	  		   android:startColor="#808080" 
 	    	   android:endColor="#000000" />
         <stroke
-            android:width="2dp"
+            android:width="1dp"
             android:color="#808080" />
         <corners
             android:radius="3dp" />
-
     </shape>
+    </inset>
 
 </item>      
 
 <item>
-     <shape>
+    <inset android:insetLeft="1dp" android:insetRight="2dp">
+    <shape>
 		<gradient android:angle="90"
 	  		   android:startColor="#FFFFFF" 
 	    	   android:endColor="#808080" />
@@ -43,6 +45,7 @@
             android:radius="3dp" />
 
     </shape>
+    </inset>
 
 </item>
 

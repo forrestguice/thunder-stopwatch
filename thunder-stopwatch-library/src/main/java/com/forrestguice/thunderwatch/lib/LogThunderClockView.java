@@ -18,6 +18,7 @@
 
 package com.forrestguice.thunderwatch.lib;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -63,8 +64,9 @@ public class LogThunderClockView extends ThunderClockActivity
 		graph = (ThemedGraph)findViewById(R.id.history_graph);
         graph.setActivity(this);
 		graph.setTitle(getString(R.string.grapharea_title));
-		if (graph.landscape)
+		if (graph.landscape && (graph.screensize < Configuration.SCREENLAYOUT_SIZE_LARGE))
         {
+            // ... because screen size in landscape is probably too small to display the graph, launch it as a dialog
             graph.setMode(CollapsableLayout.MODE_DIALOG);
         }
 		

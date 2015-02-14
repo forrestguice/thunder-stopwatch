@@ -1,0 +1,7 @@
+Artwork contained within this directory:
+
+  * clockface.svg
+  * thunder-stopwatch-icon.svg
+
+is licensed under the Creative Commons Attribution-ShareAlike 3.0 License.
+See http://creativecommons.org/licenses/by-sa/3.0/

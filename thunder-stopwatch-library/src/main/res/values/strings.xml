@@ -7,7 +7,7 @@
     <string name="localized_digits">0123456789.-</string>
 
     <string name="app_name">Thunder Stopwatch</string>
-    <string name="app_version">0.4.0</string>
+    <string name="app_version">0.4.1</string>
     <string name="app_desc">Thunder Stopwatch is a toy app that estimates the distance to a flash of lightning.</string>
 
     <string name="app_copyright_header">Legal Stuff</string>

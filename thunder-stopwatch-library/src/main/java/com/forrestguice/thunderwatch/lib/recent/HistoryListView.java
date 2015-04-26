@@ -18,6 +18,9 @@
 
 package com.forrestguice.thunderwatch.lib.recent;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.os.Build;
 import android.text.format.DateUtils;
 
 import com.forrestguice.android.CollapsableLayout;
@@ -52,6 +55,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HistoryListView extends CollapsableLayout
 {	
@@ -123,7 +127,10 @@ public class HistoryListView extends CollapsableLayout
 
 							//} else if (item.getItemId() == R.id.menu_item_history_view) {
 							//	viewHistoryItem(item);
-							}
+
+							} else if (item.getItemId() == R.id.menu_item_history_copy) {
+                                copyHistoryItemAsText(item);
+                            }
 							return false;
 						}
 					});	
@@ -538,6 +545,39 @@ public class HistoryListView extends CollapsableLayout
 		selectedItem = new SelectedItemInfo(tv.getText().toString(), info);
 		myParent.showDialog(ThunderClockApp.DIALOG_CONFIRMDELETE_ID);
 	}
+
+    private void copyHistoryItemAsText( MenuItem item )
+    {
+        AdapterContextMenuInfo info = (AdapterContextMenuInfo)item.getMenuInfo();
+        View v = info.targetView;
+        TextView text_startedOn = (TextView)v.findViewById(R.id.label_start);
+        TextView text_distance = (TextView)v.findViewById(R.id.label_distance);
+        TextView text_elapsed = (TextView)v.findViewById(R.id.label_elapsed);
+
+        String clipLabel = text_startedOn.getText().toString();
+        String clipText = text_startedOn.getText().toString() + ", " +
+                          text_distance.getText().toString() + ", " +
+                          text_elapsed.getText().toString();
+        copyText(clipLabel, clipText);
+
+        String notifyText = getContext().getResources().getString(R.string.msg_copied_success);
+        Toast.makeText(getContext(), notifyText, Toast.LENGTH_SHORT).show();
+    }
+
+    private void copyText( String clipLabel, String clipText )
+    {
+        Context context = getContext();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
+        {
+            android.text.ClipboardManager clipboard = (android.text.ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+            clipboard.setText(clipText);
+
+        } else {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText(clipLabel, clipText);
+            clipboard.setPrimaryClip(clip);
+        }
+    }
 	
 	@Override
 	public void onPrepareDialog(int id, Dialog d)

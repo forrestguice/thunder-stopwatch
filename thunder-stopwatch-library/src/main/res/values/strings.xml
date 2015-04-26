@@ -173,10 +173,14 @@
     <!-- Graph / List Context Menu -->
     <string name="menu_item_graph_dataset">Graph Entries</string>
     <string name="menu_item_graph_bracket">Graph Timeframe</string>
+
+    <string name="menu_item_history_copy">Copy Text</string>
     <string name="menu_item_history_delete">Delete Entry</string>
 
     <!-- Dialog Messages -->
     <string name="msg_delete_confirm">Are you sure you want to delete entry %s?</string>
     <string name="msg_clear_confirm">Are you sure you want to clear the history?</string>
+
+    <string name="msg_copied_success">Item copied to clipboard.</string>
            
 </resources>

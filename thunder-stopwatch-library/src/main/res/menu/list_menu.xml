@@ -21,7 +21,10 @@
    
       <!-- <item android:id="@+id/menu_item_history_view"
             android:title="@string/menu_item_history_view" />-->
-      
+
+      <item android:id="@+id/menu_item_history_copy"
+            android:title="@string/menu_item_history_copy" />
+
       <item android:id="@+id/menu_item_history_delete"
             android:title="@string/menu_item_history_delete" />
    

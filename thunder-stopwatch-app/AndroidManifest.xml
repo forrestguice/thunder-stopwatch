@@ -8,16 +8,11 @@
 	<uses-sdk android:minSdkVersion="4"
  			  android:targetSdkVersion="19" />
 
-	<!-- required to display ads -->
-	<!--<uses-permission android:name="android.permission.INTERNET" />-->
-	<!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
-	<!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
-
 	<application android:icon="@drawable/icon"
 	    android:name="com.forrestguice.thunderwatch.lib.ThunderClockApp"
 		android:label="@string/app_name">
 
-		<activity android:name="com.forrestguice.thunderwatch.free.ThunderClockExt"
+		<activity android:name="com.forrestguice.thunderwatch.lib.ThunderClock"
 			android:label="@string/app_name" 
 			android:theme="@style/dark"
 			android:icon="@drawable/icon">
@@ -35,7 +30,7 @@
 		<activity android:name="com.forrestguice.thunderwatch.lib.LogThunderClockView" android:label="@string/app_name" />
 
 		<!-- Activity: Help View -->
-		<activity android:name="com.forrestguice.thunderwatch.free.ThunderClockHelpExt" android:label="@string/app_help" />
+		<activity android:name="com.forrestguice.thunderwatch.lib.ThunderClockHelp" android:label="@string/app_help" />
 
 		<!-- Activity: Help About View -->
 		<activity android:name="com.forrestguice.thunderwatch.lib.HelpAboutThunderClockView"
@@ -50,11 +45,8 @@
 			android:label="@string/app_help" />
 
 		<!-- Activity: Settings View -->
-		<activity android:name="com.forrestguice.thunderwatch.free.ThunderClockSettingsExt" android:label="@string/app_settings" />
+		<activity android:name="com.forrestguice.thunderwatch.lib.ThunderClockSettings" android:label="@string/app_settings" />
 		
-		<!-- Activity: Mopub Browser -->
-		<!--<activity android:name="com.mopub.mobileads.MraidBrowser" android:label="@string/app_name" />-->
-
 	</application>
 
 </manifest>

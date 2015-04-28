@@ -53,7 +53,7 @@ public class ThunderClockHelp extends TabActivity
       // About View
       intent = ActivityUtil.createIntent(this, HelpAboutThunderClockView.class);
       spec = tabHost.newTabSpec("about");
-      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_about));
+      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_about), true);
       spec.setIndicator(indicator);
       spec.setContent(intent);
       tabHost.addTab(spec);
@@ -61,7 +61,7 @@ public class ThunderClockHelp extends TabActivity
       // Safety View
       intent = ActivityUtil.createIntent(this, HelpSafetyThunderClockView.class);
       spec = tabHost.newTabSpec("safety");
-      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_safety));
+      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_safety), true);
       spec.setIndicator(indicator);
       spec.setContent(intent);
       tabHost.addTab(spec);
@@ -69,7 +69,7 @@ public class ThunderClockHelp extends TabActivity
       // Howto View
       intent = ActivityUtil.createIntent(this, HelpHowtoThunderClockView.class);
       spec = tabHost.newTabSpec("howto");
-      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_howto));
+      indicator = ActivityUtil.createTabIndicator(this, getString(R.string.tab_howto), true);
       spec.setIndicator(indicator);
       spec.setContent(intent);
       tabHost.addTab(spec);

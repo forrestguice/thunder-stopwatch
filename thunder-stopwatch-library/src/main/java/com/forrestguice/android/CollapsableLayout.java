@@ -40,6 +40,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -60,8 +61,11 @@ public abstract class CollapsableLayout extends LinearLayout
 	public static final int MODE_OPEN = 2;
 	
 	public static final boolean DEFAULT_SETTING_ANIMATE = true;
-	
-	protected ImageButton btn_showHide;
+
+    public static final String SYMBOL_HIDE = "▲";
+    public static final String SYMBOL_SHOW = "▼";
+
+	protected Button btn_showHide;
 	protected TextView txt_title;
 	
 	protected Activity myParent;
@@ -134,7 +138,8 @@ public abstract class CollapsableLayout extends LinearLayout
 		TypedArray a = myParent.obtainStyledAttributes(attrs);
 		ColorStateList colors = a.getColorStateList(0);
 		a.recycle();
-		
+
+        btn_showHide.setTextColor(colors);
 		txt_title.setTextColor(colors);
 		txt_title.setText(t);
 	}
@@ -193,8 +198,8 @@ public abstract class CollapsableLayout extends LinearLayout
 	protected void initShowHide(Context context)
 	{				
 		txt_title = (TextView)findViewById(R.id.boxTitle);
-		
-		btn_showHide = (ImageButton)findViewById(R.id.btn_showhide);
+
+		btn_showHide = (Button)findViewById(R.id.btn_showhide);
 		btn_showHide.setOnTouchListener( new View.OnTouchListener()
 		{			
 			@Override
@@ -306,7 +311,7 @@ public abstract class CollapsableLayout extends LinearLayout
 		case MODE_DIALOG:
 			txt.setVisibility(View.VISIBLE);
 			btn_showHide.setVisibility(View.VISIBLE);
-			btn_showHide.setImageResource(R.drawable.showhide_button_hiding);
+            btn_showHide.setText(SYMBOL_HIDE);
 			if (mainContent != null)
             {
                 mainContent.setVisibility(View.GONE);
@@ -320,11 +325,11 @@ public abstract class CollapsableLayout extends LinearLayout
 			
 			if (hidden)
 			{
-				btn_showHide.setImageResource(R.drawable.showhide_button_hiding);
+                btn_showHide.setText(SYMBOL_HIDE);
 				onHideAction();
 				
 			} else {
-				btn_showHide.setImageResource(R.drawable.showhide_button_showing);
+                btn_showHide.setText(SYMBOL_SHOW);
 				onShowAction();
 			}
 			txt.setVisibility(View.VISIBLE);
